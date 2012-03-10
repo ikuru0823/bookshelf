@@ -1,0 +1,28 @@
+<h1>Listing book_shelves</h1>
+
+<table>
+  <tr>
+    <th>User#name</th>
+    <th>Book#Title</th>
+    <th>Book#Price</th>
+    <th>Book#R18</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @book_shelves.each do |book_shelf| %>
+  <tr>
+    <td><%= book_shelf.user.name %></td>
+    <td><%= book_shelf.book.title %></td>
+    <td><%= book_shelf.book.price %></td>
+    <td><%= book_shelf.book.R18 %></td>
+    <td><%= link_to 'Show', book_shelf %></td>
+    <td><%= link_to 'Edit', edit_book_shelf_path(book_shelf) %></td>
+    <td><%= link_to 'Destroy', book_shelf, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Book shelf', new_book_shelf_path %>
